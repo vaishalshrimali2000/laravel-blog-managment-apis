@@ -18,7 +18,14 @@ class BlogController extends Controller
 
         $q = Blog::query()
             ->with(['user','likes'])
-            ->withLikeCounts();
+            ->withLikeCounts()
+            ->when($request->user(), function ($query) use ($request){
+                $query->withExists([
+                    'likes as liked_by_me' => function ($q) use ($request) {
+                        $q->where('user_id',$request->user()->id);
+                    }
+                ]);
+            });
         
         if($search){
             $q->where(function($qq) use ($search){

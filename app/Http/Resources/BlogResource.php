@@ -16,6 +16,7 @@ class BlogResource extends JsonResource
     {
         $user = $request->user();
         $likedByUser = $user ? $this->likes->contains('user_id',$user->id) : false;
+        $likedByUser = (bool) ($this->liked_by_me ?? false);
 
         return [
             'id' => $this->id,
