@@ -34,7 +34,7 @@ A clean REST API built with **Laravel 12** using **Sanctum Authentication**, **P
 
 ```bash
 # Clone the repo
-git clone https://github.com/<your-username>/laravel-blog-management-api.git
+git clone https://github.com/vaishalshrimali2000/laravel-blog-managment-apis.git
 cd laravel-blog-management-api
 
 # Install dependencies
