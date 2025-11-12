@@ -1,0 +1,13 @@
+/vendor
+/node_modules
+/public/storage
+.env
+.env.example.backup
+/storage/*.key
+/storage/framework/*
+/storage/logs/*
+/.idea
+/.vscode
+/.phpunit.result.cache
+/composer.lock
+/npm-debug.log
