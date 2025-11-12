@@ -1,0 +1,403 @@
+{
+	"info": {
+		"_postman_id": "f29373ea-e574-467b-bf6d-40603da70501",
+		"name": "Blog-Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34998929",
+		"_collection_link": "https://new444-7788.postman.co/workspace/My-Workspace~7596ad5b-54a3-46c9-86dd-15a9dfc0af3f/collection/34998929-f29373ea-e574-467b-bf6d-40603da70501?action=share&source=collection_link&creator=34998929"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": " application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Vaishal Shriamli",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "vaishalshrimali@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}register",
+					"host": [
+						"{{base_url}}register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "vaishalshrimali@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}login",
+					"host": [
+						"{{base_url}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{auth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}user",
+					"host": [
+						"{{base_url}}user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{auth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}logout",
+					"host": [
+						"{{base_url}}logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Blog",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{auth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Title Two",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "This is a blog description two",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/VAISHAL/Downloads/bag.jpg.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}blogs",
+					"host": [
+						"{{base_url}}blogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blogs List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{auth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}blogs?sort=latest",
+					"host": [
+						"{{base_url}}blogs"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "latest"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Blog",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{auth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Title Two with id 7",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "This is a blog description two with id 7",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}blogs/7",
+					"host": [
+						"{{base_url}}blogs"
+					],
+					"path": [
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Blog",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{auth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}blogs/6",
+					"host": [
+						"{{base_url}}blogs"
+					],
+					"path": [
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Toggle Like",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{auth_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}blogs/5/like-toggle",
+					"host": [
+						"{{base_url}}blogs"
+					],
+					"path": [
+						"5",
+						"like-toggle"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000/api/"
+		},
+		{
+			"key": "auth_token",
+			"value": "2|LxvrF4E89jeEJl2dybA9tjvZooApzmAhUNmWSvaF1b56c035"
+		}
+	]
+}
